@@ -12,7 +12,11 @@
 int main() {
     float times[max_threads];
 
+<<<<<<< HEAD
 // We allocate memory space for the grid and a copy of it to do parallel calculations on 
+=======
+//We allocate memory space for the grid and a copy of it to do parallel calculations on 
+>>>>>>> ab160f81d08b12801aa6d6ad45a49a97c7bd6d2c
 
     float** grid = malloc(N * sizeof(float*));
     float** new_grid = malloc(N * sizeof(float*));
@@ -26,7 +30,11 @@ int main() {
         int count = 0;
         double start_time, end_time;
 
+<<<<<<< HEAD
 // Initial conditions
+=======
+ //Initial conditions
+>>>>>>> ab160f81d08b12801aa6d6ad45a49a97c7bd6d2c
 
         for (int x = 0; x < N; x++) {
             for (int y = 0; y < N; y++) {
@@ -37,7 +45,11 @@ int main() {
             }
        }
 
+<<<<<<< HEAD
 // We save the cells initial T in the last case where we have 11 threads
+=======
+//We save the cells initial T in the last case where we have 11 threads
+>>>>>>> ab160f81d08b12801aa6d6ad45a49a97c7bd6d2c
 
        if (threads==11){
         for (int x = 0; x < N; x++) {
@@ -59,7 +71,11 @@ int main() {
                 for (int y = 0; y < N; y++) {
                     float temp = grid[x][y];
 
+<<<<<<< HEAD
 // Propagation law + boundary conditions
+=======
+//Propagation law + boundary conditions
+>>>>>>> ab160f81d08b12801aa6d6ad45a49a97c7bd6d2c
 
                     if (x == 0 && y == 0)
                         new_grid[x][y] = (grid[1][0] + grid[0][1]) / 2;
@@ -80,7 +96,11 @@ int main() {
                     else
                         new_grid[x][y] = (grid[x - 1][y] + grid[x + 1][y] + grid[x][y - 1] + grid[x][y + 1]) / 4;
 
+<<<<<<< HEAD
 // End of propagation law + boundary conditions
+=======
+//End of propagation law + boundary conditions
+>>>>>>> ab160f81d08b12801aa6d6ad45a49a97c7bd6d2c
 
 /*To change boundary conditions the block above can be sostituted with:
 
@@ -120,7 +140,11 @@ grid[xp][y]+grid[x][ym]+grid[x][yp]); */
                     grid[x][y] = new_grid[x][y];}
                 }
 
+<<<<<<< HEAD
 // We save the cells T every N/10 iterations, where N is the max number of them
+=======
+//We save the cells T every N/10 iterations, where N is the max number of them
+>>>>>>> ab160f81d08b12801aa6d6ad45a49a97c7bd6d2c
 
 	if (threads==11 && count%1000==0){
             for (int x = 0; x < N; x++) {
@@ -149,7 +173,11 @@ grid[xp][y]+grid[x][ym]+grid[x][yp]); */
     free(grid);
     free(new_grid);
 
+<<<<<<< HEAD
 // We save execution times in a file
+=======
+//We save execution times in a file
+>>>>>>> ab160f81d08b12801aa6d6ad45a49a97c7bd6d2c
 
     FILE* file=fopen("execution_times_A_10000.csv", "w");
     for (int i = 0; i < max_threads; i++) {
