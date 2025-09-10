@@ -12,7 +12,7 @@
 int main() {
     float times[max_threads];
 
-\\We allocate memory space for the grid and a copy of it to do parallel calculations on 
+// We allocate memory space for the grid and a copy of it to do parallel calculations on 
 
     float** grid = malloc(N * sizeof(float*));
     float** new_grid = malloc(N * sizeof(float*));
@@ -20,13 +20,13 @@ int main() {
         grid[i] = malloc(N * sizeof(float));
         new_grid[i] = malloc(N * sizeof(float));
     }
-    FILE* file_grid=fopen("grid_A_10000.csv", "w");  \\file where thw cells T will be saved
+    FILE* file_grid=fopen("grid_A_10000.csv", "w");  // file where the cells T will be saved
 
     for (int threads = 1; threads <= max_threads; threads++) {
         int count = 0;
         double start_time, end_time;
 
- \\Initial conditions
+// Initial conditions
 
         for (int x = 0; x < N; x++) {
             for (int y = 0; y < N; y++) {
@@ -37,7 +37,7 @@ int main() {
             }
        }
 
-\\We save the cells initial T in the last case where we have 11 threads
+// We save the cells initial T in the last case where we have 11 threads
 
        if (threads==11){
         for (int x = 0; x < N; x++) {
@@ -59,7 +59,7 @@ int main() {
                 for (int y = 0; y < N; y++) {
                     float temp = grid[x][y];
 
-\\Propagation law + boundary conditions
+// Propagation law + boundary conditions
 
                     if (x == 0 && y == 0)
                         new_grid[x][y] = (grid[1][0] + grid[0][1]) / 2;
@@ -80,9 +80,9 @@ int main() {
                     else
                         new_grid[x][y] = (grid[x - 1][y] + grid[x + 1][y] + grid[x][y - 1] + grid[x][y + 1]) / 4;
 
-\\End of propagation law + boundary conditions
+// End of propagation law + boundary conditions
 
-\*To change boundary conditions the block above can be sostituted with:
+/*To change boundary conditions the block above can be sostituted with:
 
 -Dirichlet B.C.:
 
@@ -105,7 +105,7 @@ xp=(x+1)%N;
 ym=(y+N-1)%N; 
 yp=(y+1)%N;
 new_grid[x][y] = 0.25f*(grid[xm][y]+
-grid[xp][y]+grid[x][ym]+grid[x][yp]); *\
+grid[xp][y]+grid[x][ym]+grid[x][yp]); */
 
                     float diff = fabsf(temp - new_grid[x][y]);
                     if (diff > max_diff)
@@ -120,7 +120,7 @@ grid[xp][y]+grid[x][ym]+grid[x][yp]); *\
                     grid[x][y] = new_grid[x][y];}
                 }
 
-\\We save the cells T every N/10 iterations, where N is the max number of them
+// We save the cells T every N/10 iterations, where N is the max number of them
 
 	if (threads==11 && count%1000==0){
             for (int x = 0; x < N; x++) {
@@ -149,7 +149,7 @@ grid[xp][y]+grid[x][ym]+grid[x][yp]); *\
     free(grid);
     free(new_grid);
 
-\\We save execution times in a file
+// We save execution times in a file
 
     FILE* file=fopen("execution_times_A_10000.csv", "w");
     for (int i = 0; i < max_threads; i++) {

@@ -14,7 +14,7 @@ int main() {
     float W_x=0.3;
     float W_y=0.2;
 
-\\We allocate memory space for the grid and a copy of it to do parallel calculations on 
+// We allocate memory space for the grid and a copy of it to do parallel calculations on 
 
     float** grid = malloc(N * sizeof(float*));
     float** new_grid = malloc(N * sizeof(float*));
@@ -28,7 +28,7 @@ FILE* file_grid=fopen("grid_B_10000.csv", "w");
         int count = 0;
         double start_time, end_time;
 
- \\Initial conditions
+ // Initial conditions
 
         for (int x = 0; x < N; x++) {
             for (int y = 0; y < N; y++) {
@@ -39,7 +39,7 @@ FILE* file_grid=fopen("grid_B_10000.csv", "w");
             }
         }
 
-\\We save the cells initial T in the last case where we have 11 threads
+// We save the cells initial T in the last case where we have 11 threads
 
 	if (threads==11){
         for (int x = 0; x < N; x++) {
@@ -60,7 +60,7 @@ FILE* file_grid=fopen("grid_B_10000.csv", "w");
                 for (int y = 0; y < N; y++) {
                     float temp = grid[x][y];
 
-\\Propagation law + boundary conditions
+// Propagation law + boundary conditions
 
                     if (x == 0 && y == 0)
                         new_grid[x][y] = W_y*grid[1][0] + grid[0][1]*W_x;
@@ -81,7 +81,7 @@ FILE* file_grid=fopen("grid_B_10000.csv", "w");
                     else
                         new_grid[x][y] = W_y*(grid[x - 1][y] + grid[x + 1][y]) + W_x*(grid[x][y - 1] + grid[x][y + 1]);
 
-\\End of propagation law + boundary conditions
+// End of propagation law + boundary conditions
 
                     float diff = fabsf(temp - new_grid[x][y]);
                     if (diff > max_diff)
@@ -97,7 +97,7 @@ FILE* file_grid=fopen("grid_B_10000.csv", "w");
                 }
             }
 
-\\We save the cells T every N/10 iterations, where N is the max number of them
+// We save the cells T every N/10 iterations, where N is the max number of them
 
 	if(threads==11 && count%1000==0){
             for (int x = 0; x < N; x++) {
@@ -127,8 +127,8 @@ FILE* file_grid=fopen("grid_B_10000.csv", "w");
     }
     free(grid);
     free(new_grid);
-    
-\\We save execution times in a file
+
+    // We save execution times in a file
 
     FILE* file=fopen("execution_times_B_10000.csv", "w");
     for (int i = 0; i < max_threads; i++) {

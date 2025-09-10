@@ -1,0 +1,27 @@
+Authors: 
+Enrico Bozzetto, Simone Sticca, Daniele Spalazzi
+
+Description:
+This project allow to run experiments for simultaion of heat propagation for two different cofigurations (A and B) that change for the grid configuration and the propagation law.
+
+Requirements:
+gcc compiler
+SLURM job scheduler
+
+Project structure:
+logs/
+ex3_caseA.c
+caseA_3.slurm
+ex3_caseB.c
+caseB_3.slurm
+
+
+Usage:
+
+A. Single node experiment
+Run: sbatch caseA_3.slurm
+Output: grid_A_dim.csv, execution_times_A_dim.csv
+
+B. Single node experiment
+Run: sbatch caseB_3.slurm
+Output: grid_B_dim.csv, execution_times_B_dim.csv
