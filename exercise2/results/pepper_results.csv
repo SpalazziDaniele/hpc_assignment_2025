@@ -1,0 +1,13 @@
+Image,BlockSize,Time_ms,GPU_Used_Mem[MB],PSNR,PSNR_Filtered
+reference_pepper_50,8,17.2398,295,7.92817,13.0782
+reference_pepper_50,16,12.8058,295,7.92817,13.0782
+reference_pepper_50,24,12.5996,295,7.92817,13.0782
+reference_pepper_50,32,12.6701,295,7.92817,13.0782
+reference_pepper_75,8,11.9848,295,5.86116,10.1999
+reference_pepper_75,16,11.9307,295,5.86116,10.1999
+reference_pepper_75,24,12.0829,295,5.86116,10.1999
+reference_pepper_75,32,12.1974,295,5.86116,10.1999
+reference_pepper_90,8,12.0081,295,5.34503,9.43882
+reference_pepper_90,16,12.1617,295,5.34503,9.43882
+reference_pepper_90,24,13.5736,295,5.34503,9.43882
+reference_pepper_90,32,12.0559,295,5.34503,9.43882

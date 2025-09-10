@@ -1,0 +1,13 @@
+Image,BlockSize,Time_ms,GPU_Used_Mem[MB],PSNR,PSNR_Filtered
+Lenna_(test_image)_50,8,5.64774,271,7.85137,13.8714
+Lenna_(test_image)_50,16,0.440384,271,7.85137,13.8714
+Lenna_(test_image)_50,24,0.412768,271,7.85137,13.8714
+Lenna_(test_image)_50,32,0.405888,271,7.85137,13.8714
+Lenna_(test_image)_75,8,0.42752,271,6.75465,12.3547
+Lenna_(test_image)_75,16,0.415616,271,6.75465,12.3547
+Lenna_(test_image)_75,24,0.407872,271,6.75465,12.3547
+Lenna_(test_image)_75,32,0.426944,271,6.75465,12.3547
+Lenna_(test_image)_90,8,0.434304,271,6.44809,11.9
+Lenna_(test_image)_90,16,0.413504,271,6.44809,11.9
+Lenna_(test_image)_90,24,0.416192,271,6.44809,11.9
+Lenna_(test_image)_90,32,0.403808,271,6.44809,11.9

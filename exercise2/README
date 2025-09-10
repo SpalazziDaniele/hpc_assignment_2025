@@ -1,0 +1,50 @@
+Authors: 
+Enrico Bozzetto, Simone Sticca, Daniele Spalazzi
+
+Description:
+This project allow to test the application of a custom filter in CUDA to different images size or with a noise added. Results are saved as execution performance in the results folder.
+
+Requirements:
+CUDA toolkit installed
+g++ (for compiling resize.cpp)
+SLURM job scheduler
+
+Project structure:
+images/
+results/
+logs/
+resize.cpp
+decomposeAndFilter.cu
+run_cuda_size.slurm
+run_cuda_noise.slurm
+run_cuda_noise_lenna.slurm
+run_cuda_noise_pepper.slurm
+
+Usage:
+1. Experiment with different image sizes.
+Input requirements: place pexels-christian-heitz.jpg in the images/ folder.
+Run: sbatch run_cuda_size.slurm.
+Output: execution results in results/execution_results.csv and the resized and filtered images in images/ folder.
+
+2. Experiment with different noise levels
+Input requirements: place resized_pexels-christian-heitz_4K.png, image_4K_noise50.png, image_4K_noise75.png and image_4K_noise90.png in images/ folder.
+Run: sbatch run_cuda_noise.slurm
+Output: execution results in results/execution_results.csv and the filtered images in images/ folder.
+
+3. Experiment with Lenna reference
+Input requirements: place Lenna_(test_image).png, Lenna_(test_image)_50.png, Lenna_(test_image)_75.png and Lenna_(test_image)_90.png in images/ folder.
+Run: sbatch run_cuda_noise_lenna.slurm
+Output: execution results in results/execution_results.csv and the filtered images in images/ folder.
+
+4. Experiment with Pepper reference
+Input requirements: place reference_pepper.png, reference_pepper_50.png, reference_pepper_75.png and reference_pepper_90.png in images/ folder.
+Run: sbatch run_cuda_noise_pepper.slurm
+Output: execution results in results/execution_results.csv and the filtered images in images/ folder.
+
+Further informations:
+decomposeAndFilter.cu accepts the following arguments:
+./decomposeAndFilter <mode> <num_images> <image_paths...> [reference_image]
+mode: 0 → execution without reference image, 1 → execution with reference image
+num_images: number of images to filter
+image_paths: paths to input images
+reference_image (optional): only if mode = 1

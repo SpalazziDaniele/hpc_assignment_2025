@@ -1,0 +1,48 @@
+Authors: 
+Enrico Bozzetto, Simone Sticca, Daniele Spalazzi
+
+Description:
+This project allow to test matrix multiplication with systolica array architecture using MPI.
+
+Requirements:
+openmpi
+gcc compiler
+SLURM job scheduler
+
+Project structure:
+csv/
+results/
+logs/
+csvutils.c
+matrixUtils.h
+calculateReference.c
+checkResults.c
+initializeMatrices.c
+systolicMultiplication.c
+submitReferenceMatrix.sh
+submitExperiment.sh
+submitExperiment2Nodes.sh
+submitExperimentMultipleNodes.sh
+referenceMatrix.slurm
+systolicRun.slurm
+systolicRunMultipleNodes.slurm
+
+
+Usage:
+To run experiments is needed firstly to create the input and reference matrices with submitReferenceMatrix.sh script.
+Run: submitReferenceMatrix.sh <DIM1> [DIM2 ...]
+Output: input matrices and reference matrices for each dimension and for the 10 repetitions are saved in csv/ folder the execution results for reference value are saved in results/reference_${DIM}.csv.
+
+Then different experiments can be run using the same matrices dimensions.
+
+1. Single node experiment
+Run: submitExperiment.sh <NUM_DIMS> <DIM1> [DIM2 ...] <PROC1> [PROC2 ...]
+Output: execution results for systolic array multiplication are saved in results/systolic_${DIM}_${PROCS}_${REP}.csv and matrices are saved in csv/ folder.
+
+2. Two nodes experiment
+Run: submitExperiment2Nodes.sh <NUM_DIMS> <DIM1> [DIM2 ...] <PROC1> [PROC2 ...]
+Output: execution results for systolic array multiplication are saved in results/multi_nodes_systolic_${DIM}_${PROCS}_${REP}.csv and matrices are saved in csv/ folder.
+
+
+To merge the results in single csv file for each experiment type use merge.sh script.
+Run: merge.sh

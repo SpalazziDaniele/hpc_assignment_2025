@@ -1,0 +1,13 @@
+Image,BlockSize,Time_ms,GPU_Used_Mem[MB],PSNR,PSNR_Filtered
+resized_pexels-christian-heitz_4K,8,14.4354,287,361.202,24.109
+resized_pexels-christian-heitz_4K,16,9.51229,287,361.202,24.109
+resized_pexels-christian-heitz_4K,24,8.83261,287,361.202,24.109
+resized_pexels-christian-heitz_4K,32,8.82051,287,361.202,24.109
+resized_pexels-christian-heitz_8K,8,33.9471,335,361.202,25.5588
+resized_pexels-christian-heitz_8K,16,33.8565,335,361.202,25.5588
+resized_pexels-christian-heitz_8K,24,33.3043,335,361.202,25.5588
+resized_pexels-christian-heitz_8K,32,33.3982,335,361.202,25.5588
+resized_pexels-christian-heitz_16K,8,125.466,527,361.202,26.2738
+resized_pexels-christian-heitz_16K,16,112.903,527,361.202,26.2738
+resized_pexels-christian-heitz_16K,24,113.576,527,361.202,26.2738
+resized_pexels-christian-heitz_16K,32,115.949,527,361.202,26.2738
